@@ -18,4 +18,6 @@ public class Notification {
     private Long userId;
     private String message;
     private LocalDateTime timestamp;
+
+    private String type; // NEW FIELD
 }

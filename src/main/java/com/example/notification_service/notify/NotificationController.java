@@ -20,7 +20,8 @@ public class NotificationController {
     @PostMapping
     public ResponseEntity<String> sendNotification(@RequestBody Map<String, String> body) {
         String message = body.get("message");
-        service.sendNotificationToAllUsers(message);
+        String type = body.get("type"); // NEW
+        service.sendNotificationToAllUsers(message, type); // UPDATED
         return ResponseEntity.ok("Notification sent to all users.");
     }
 

@@ -16,16 +16,17 @@ public class NotificationService {
         this.repository = repository;
     }
 
-    public void sendNotificationToAllUsers(String message) {
-        // Dummy: Let's say user IDs are 1 to 5
+    public void sendNotificationToAllUsers(String message, String type) {
         for (long userId = 1; userId <= 5; userId++) {
             Notification notification = new Notification();
             notification.setUserId(userId);
             notification.setMessage(message);
             notification.setTimestamp(LocalDateTime.now());
+            notification.setType(type); // Set type
             repository.save(notification);
         }
     }
+
 
     public List<Notification> getNotificationsByUserId(Long userId) {
         return repository.findByUserId(userId);
